@@ -34,10 +34,10 @@ public class S3JavaSDKExample {
         BucketUtils.deleteAllBuckets(s3Client);
 
 
-        String newBucketName = "mattua" + System.currentTimeMillis();
+        String newBucketName = "configurationbucket" + System.currentTimeMillis();
         s3Client.createBucket(newBucketName);
 
-        final String fileName = "sometext.txt";
+        final String fileName = "sampletext.txt";
 
         File file = new File(S3JavaSDKExample.class.getResource(fileName).toURI());
 
@@ -84,7 +84,7 @@ public class S3JavaSDKExample {
 
 
 
-        String newBucketName = "mattua" + System.currentTimeMillis();
+        String newBucketName = "configurationbucket" + System.currentTimeMillis();
         s3Client.createBucket(newBucketName);
 
         String policy = BucketUtils.readFileFromResources("encrypted-folder-policy.txt").replace("bucketname",newBucketName);
@@ -96,7 +96,7 @@ public class S3JavaSDKExample {
         System.out.println(policy);
         s3Client.setBucketPolicy(newBucketName, policy);
 
-        final String fileName = "sometext.txt";
+        final String fileName = "sampletext.txt";
 
         File file = new File(S3JavaSDKExample.class.getResource(fileName).toURI());
 
@@ -156,7 +156,7 @@ public class S3JavaSDKExample {
 
         BucketUtils.deleteAllBuckets(s3Client);
 
-        String newBucketName = "mattua" + System.currentTimeMillis();
+        String newBucketName = "configurationbucket" + System.currentTimeMillis();
         s3Client.createBucket(newBucketName);
 
         String policy = BucketUtils.readFileFromResources("encrypted-folder-policy-notresource.txt").replace("bucketname",newBucketName);
@@ -168,7 +168,7 @@ public class S3JavaSDKExample {
         System.out.println(policy);
         s3Client.setBucketPolicy(newBucketName, policy);
 
-        final String fileName = "sometext.txt";
+        final String fileName = "sampletext.txt";
 
         File file = new File(S3JavaSDKExample.class.getResource(fileName).toURI());
 
@@ -193,7 +193,7 @@ public class S3JavaSDKExample {
                     response1.getSSEAlgorithm());
         }
         {
-            PutObjectRequest putRequest1 = new PutObjectRequest(newBucketName, "bananas/" + fileName + "." + System.currentTimeMillis(), file);
+            PutObjectRequest putRequest1 = new PutObjectRequest(newBucketName, "navaneeth/" + fileName + "." + System.currentTimeMillis(), file);
 
             try {
                 PutObjectResult response1 = s3Client.putObject(putRequest1);
@@ -204,7 +204,7 @@ public class S3JavaSDKExample {
 
         }
         {
-            PutObjectRequest putRequest1 = new PutObjectRequest(newBucketName, "bananas/" + fileName + "." + System.currentTimeMillis(), file);
+            PutObjectRequest putRequest1 = new PutObjectRequest(newBucketName, "navaneeth/" + fileName + "." + System.currentTimeMillis(), file);
             ObjectMetadata objectMetadata1 = new ObjectMetadata();
             objectMetadata1.setSSEAlgorithm(ObjectMetadata.AES_256_SERVER_SIDE_ENCRYPTION);
             putRequest1.setMetadata(objectMetadata1);
